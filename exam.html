@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam table</title>
+</head>
+
+
+<body>
+    <p id="root">CAT and Main Exam
+    </p>
+
+    <table border="1" id="result">
+        <tr>
+            <th>Unit code </th>
+            <th>Name</th>
+            <th>cat</th>
+            <th>Exam</th>
+            <th>tatol</th>
+            <th>Grade</th>
+        </tr>
+
+    </table>
+    <script>
+        const table = document.getElementById("result");
+        function grade(total) {
+            if (total >= 60)
+                return 'A';
+            else if (total >= 50)
+                return 'B';
+            else if (total >= 40)
+                return 'C';
+            else
+                return 'E';
+        }
+
+        for (let i = 0; i < 7; i++) {
+            const UnitCode = prompt(`Enter unit code ${i + 1}:`) || "";
+            const UnitName = prompt(`Enter unit name ${i + 1}:`) || "";
+            const Cat = Number(prompt(`Enter cat for ${UnitCode}:`) || 0);
+            const Exam = Number(prompt(`Enter exam for ${UnitCode}:`) || 0);
+            const Total = Cat + Exam;
+            const Grade = grade(Total);
+            const row = table.insertRow();
+            row.insertCell(0).textContent = UnitCode;
+            row.insertCell(1).textContent = UnitName;
+            row.insertCell(2).textContent = Cat;
+            row.insertCell(3).textContent = Exam;
+            row.insertCell(4).textContent = Total;
+            row.insertCell(5).textContent = Grade;
+        } 
+    </script>
+</body>
+
+</html>
